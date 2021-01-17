@@ -1,6 +1,5 @@
 FROM tensorflow/tensorflow
 
-MAINTAINER olaide joseph <josepholaide10@gmail.com>
+COPY . /var/tf_mnist
 
-ADD ADD . 
-ENTRYPOINT ["python", "strategy-tfjob.py", "--saved_model_dir", "/train/saved_model/"]
+ENTRYPOINT ["python", "/var/tf_mnist/strategy_tfjob.py", "--saved_model_dir", "/tmp/saved_model/"]
