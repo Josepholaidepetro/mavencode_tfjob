@@ -1,4 +1,4 @@
-apiVersion: "kubeflow.org/v1beta1"
+apiVersion: "kubeflow.org/v1alpha3"
 kind: Experiment
 metadata:
   namespace: kubeflow
@@ -49,6 +49,9 @@ spec:
             replicas: 2
             restartPolicy: OnFailure
             template:
+              metadata:
+                annotations:
+                  sidecar.istio.io/inject: "false"
               spec:
                 containers:
                   - name: tensorflow
